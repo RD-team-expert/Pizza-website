@@ -7,6 +7,7 @@ import { motion, useInView } from 'framer-motion'
 import { PageLoadingSpinner } from '../components/PageLoadingSpinner'
 import Image from 'next/image'
 import { Footer } from '../components/Footer'  // Import the Footer component
+import { DynamicMetadata } from '../components/DynamicMetadata'
 
 interface Milestone {
   date: string
@@ -83,7 +84,9 @@ export default function AboutUs() {
   }
 
   return (
+    
     <SmoothScroll>
+      <DynamicMetadata page="about" />
       <ModernNavbar />
       <main className="flex min-h-screen flex-col">
         <motion.div 

@@ -17,6 +17,7 @@ interface Location {
   zip: string
   description: string
   status: boolean
+  lc_number?: string  // Added lc_number as optional property
 }
 
 export function LocationsSection({ id, className }: { id?: string, className?: string }) {
@@ -40,7 +41,7 @@ export function LocationsSection({ id, className }: { id?: string, className?: s
 
   const [locations, setLocations] = useState<Location[]>([])
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null)
-  const [mapCenter, setMapCenter] = useState({ lat: 39.8283, lng: -98.5795 })
+  const [mapCenter, setMapCenter] = useState({ lat: 40.4173, lng: -82.9071 })
   const [mapZoom, setMapZoom] = useState(4)
   const [isMapLoaded, setIsMapLoaded] = useState(false)
   const [isMapLoading, setIsMapLoading] = useState(true)
@@ -265,7 +266,18 @@ export function LocationsSection({ id, className }: { id?: string, className?: s
                         alt={selectedLocation.name}
                         className="w-full h-32 object-cover rounded-md mb-2"
                       />
-                      <p className="text-sm">{selectedLocation.description}</p>
+                      <p className="text-sm mb-3">{selectedLocation.description}</p>
+                      
+                      {selectedLocation.lc_number && (
+                        <a 
+                          href={`https://littlecaesars.com/en-us/order/pickup/stores/${selectedLocation.lc_number}/order-time/`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block w-full bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded text-center transition-colors"
+                        >
+                          Order Online
+                        </a>
+                      )}
                     </div>
                   </InfoWindow>
                 )}
@@ -303,11 +315,22 @@ export function LocationsSection({ id, className }: { id?: string, className?: s
                       strokeWidth={2.5}
                       fill="#fff"
                     />
-                    <div>
+                    <div className="flex-1">
                       <h4 className="font-bold">{location.name}</h4>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-600 mb-1">
                         {location.street}, {location.city}, {location.state} {location.zip}
                       </p>
+                      {location.lc_number && (
+                        <a 
+                          href={`https://littlecaesars.com/en-us/order/pickup/stores/${location.lc_number}/order-time/`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="inline-block mt-1 bg-primary hover:bg-primary/90 text-white text-xs font-bold py-1 px-2 rounded transition-colors"
+                        >
+                          Order Online
+                        </a>
+                      )}
                     </div>
                   </motion.li>
                 ))}

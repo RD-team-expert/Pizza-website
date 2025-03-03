@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { MapPin, Clock, ExternalLink, Briefcase, Globe } from 'lucide-react'
 import Link from 'next/link'
+import { DynamicMetadata } from '../components/DynamicMetadata'
 
 // Define types for the API response
 interface Location {
@@ -65,13 +66,13 @@ export default function CareersPage() {
       try {
         const apiUrl = process.env.NEXT_PUBLIC_API_URL;
         const response = await fetch(`${apiUrl}/api/v1/positions`);
-        
+
         if (!response.ok) {
           throw new Error(`Failed to fetch jobs: ${response.status}`);
         }
-        
+
         const data: ApiResponse = await response.json();
-        
+
         if (data.success && data.data.positions) {
           setJobOpenings(data.data.positions);
         } else {
@@ -90,7 +91,7 @@ export default function CareersPage() {
 
   // Helper function to format job type
   const formatJobType = (type: string) => {
-    return type.split('_').map(word => 
+    return type.split('_').map(word =>
       word.charAt(0).toUpperCase() + word.slice(1)
     ).join(' ');
   };
@@ -98,19 +99,20 @@ export default function CareersPage() {
   // Helper function to get location display string
   const getLocationString = (location: Location) => {
     const parts = [];
-    
+
     if (location.city) parts.push(location.city);
     if (location.state) parts.push(location.state);
     if (parts.length === 0 && location.country) return location.country;
-    
+
     return parts.join(', ');
   };
 
   return (
     <SmoothScroll>
+      <DynamicMetadata page="careers" />
       <ModernNavbar />
       <main className="flex min-h-screen flex-col items-center justify-between pt-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
-        <motion.div 
+        <motion.div
           className="w-full max-w-7xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -120,27 +122,27 @@ export default function CareersPage() {
           <p className="text-xl text-center mb-12 max-w-3xl mx-auto">
             Explore exciting career opportunities with PNE Pizza. We're looking for passionate individuals to join our growing team and help us deliver delicious pizzas and exceptional experiences to our customers.
           </p>
-          
+
           {loading && (
             <div className="flex justify-center items-center py-12">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
             </div>
           )}
-          
+
           {error && (
             <div className="text-center py-8">
               <p className="text-red-500">Error: {error}</p>
               <p>Please try again later or contact support.</p>
             </div>
           )}
-          
+
           {!loading && !error && jobOpenings.length === 0 && (
             <div className="text-center py-8">
               <p className="text-lg">No job openings available at this time.</p>
               <p>Please check back later for new opportunities.</p>
             </div>
           )}
-          
+
           {!loading && !error && jobOpenings.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {jobOpenings.map((job) => (
@@ -189,16 +191,16 @@ export default function CareersPage() {
                       <div className={`text-sm mb-4 ${!expandedJobs[job.uuid] ? "line-clamp-3" : ""}`}>
                         <div dangerouslySetInnerHTML={{ __html: job.overview }}></div>
                       </div>
-                      
-                      <Button 
-                        variant="ghost" 
-                        size="sm" 
+
+                      <Button
+                        variant="ghost"
+                        size="sm"
                         onClick={() => toggleJobDescription(job.uuid)}
                         className="text-primary hover:text-primary/80 p-0 h-auto font-medium"
                       >
                         {expandedJobs[job.uuid] ? "Show Less" : "Show More"}
                       </Button>
-                      
+
                       {job.location && (
                         <div className="text-sm text-gray-600 mt-2">
                           {job.location.address && <p>{job.location.address}</p>}

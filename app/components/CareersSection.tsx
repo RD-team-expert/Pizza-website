@@ -55,6 +55,18 @@ export function CareersSection({ id, className }: { id?: string, className?: str
   const [jobOpenings, setJobOpenings] = useState<Position[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Add useEffect for mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -69,8 +81,9 @@ export function CareersSection({ id, className }: { id?: string, className?: str
         const data: ApiResponse = await response.json();
         
         if (data.success && data.data.positions) {
-          // Only take the first 6 positions
-          setJobOpenings(data.data.positions.slice(0, 8));
+          // Show different number of positions based on screen size
+          const limit = isMobile ? 3 : 8;
+          setJobOpenings(data.data.positions.slice(0, limit));
         } else {
           throw new Error('Invalid data format received from API');
         }
@@ -83,7 +96,7 @@ export function CareersSection({ id, className }: { id?: string, className?: str
     };
 
     fetchJobs();
-  }, []);
+  }, [isMobile]); // Re-fetch when screen size changes
 
   // Helper function to get location display string
   const getLocationString = (location: Location) => {
