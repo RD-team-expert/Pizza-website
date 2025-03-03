@@ -98,13 +98,13 @@ export function HeroSection() {
       {/* Floating ingredients with improved animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[
-          'https://pnepizza.com/images/cheese.svg',
-          'https://pnepizza.com/images/garlic.svg',
-          'https://pnepizza.com/images/jalapeno.svg',
-          'https://pnepizza.com/images/ol.svg',
-          'https://pnepizza.com/images/olive.svg',
-          'https://pnepizza.com/images/cheese.svg',
-          'https://pnepizza.com/images/pepper.svg',
+          '/cheese.svg',
+          '/garlic.svg',
+          '/jalapeno.svg',
+          '/ol.svg',
+          '/olive.svg',
+          '/cheese.svg',
+          '/pepper.svg',
         ].map((src, index) => (
           <motion.div
             key={index}
@@ -178,7 +178,7 @@ export function HeroSection() {
             }}
           >
             <Image
-              src="https://pnepizza.com/images/pizza.png"
+              src="/pizza.png"
               alt="Delicious Pizza Slice"
               fill
               sizes="(max-width: 768px) 100vw, 600px"
