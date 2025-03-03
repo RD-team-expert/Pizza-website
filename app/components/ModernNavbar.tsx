@@ -119,11 +119,11 @@ export function ModernNavbar() {
           <div className="flex items-center space-x-3">
             {/* CTA Buttons for desktop */}
             <div className="hidden md:flex items-center space-x-2">
-              <Link href="/menu">
+              {/* <Link href="/menu">
                 <Button className="bg-primary text-white text-sm px-4 py-1 h-auto rounded-full hover:bg-primary/90 transition-colors duration-200">
                   Order Now
                 </Button>
-              </Link>
+              </Link> */}
               <Link href="/locations">
                 <Button variant="outline" className="border-primary text-primary text-sm px-4 py-1 h-auto rounded-full hover:bg-primary/10 transition-colors duration-200">
                   Find Locations

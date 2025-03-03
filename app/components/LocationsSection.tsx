@@ -275,7 +275,7 @@ export function LocationsSection({ id, className }: { id?: string, className?: s
                           rel="noopener noreferrer"
                           className="block w-full bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded text-center transition-colors"
                         >
-                          Order Online
+                          Order Now
                         </a>
                       )}
                     </div>

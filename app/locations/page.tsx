@@ -337,7 +337,7 @@ export default function LocationsPage() {
                               onClick={(e) => e.stopPropagation()}
                               className="inline-block mt-1 bg-primary hover:bg-primary/90 text-white text-xs font-bold py-1 px-2 rounded transition-colors"
                             >
-                              Order Online
+                              Order Now
                             </a>
                           )}
                         </div>
