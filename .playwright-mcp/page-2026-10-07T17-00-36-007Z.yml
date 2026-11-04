@@ -1,0 +1,198 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - link [ref=e6]:
+          - /url: /
+          - img "PNE PIZZA Logo" [ref=e7]
+        - generic [ref=e8]:
+          - link "Home" [ref=e9]:
+            - /url: /
+          - link "About" [ref=e10]:
+            - /url: /about
+          - link "Jobs" [ref=e11]:
+            - /url: /careers
+          - link "Contact" [ref=e12]:
+            - /url: "#contact"
+      - link [ref=e15]:
+        - /url: /locations
+        - button "Find Locations" [ref=e16]
+  - main [ref=e18]:
+    - generic [ref=e19]:
+      - generic:
+        - generic:
+          - generic:
+            - img "Pizza topping 1"
+        - generic:
+          - generic:
+            - img "Pizza topping 2"
+        - generic:
+          - generic:
+            - img "Pizza topping 3"
+        - generic:
+          - generic:
+            - img "Pizza topping 4"
+        - generic:
+          - generic:
+            - img "Pizza topping 5"
+        - generic:
+          - generic:
+            - img "Pizza topping 6"
+        - generic:
+          - generic:
+            - img "Pizza topping 7"
+      - generic [ref=e20]:
+        - generic [ref=e21]:
+          - heading "Hot & Ready Pizza Awaits!" [level=1] [ref=e22]
+          - paragraph [ref=e23]: Experience the taste of PNE Pizza, your local Little Caesars franchise. Quality ingredients, fast service, and unbeatable prices!
+        - img "Delicious Pizza Slice" [ref=e26]
+    - generic [ref=e28]:
+      - heading "Our Locations" [level=2] [ref=e29]
+      - generic [ref=e30]:
+        - generic [ref=e32]:
+          - generic [ref=e34]:
+            - generic [ref=e36]: This page can't load Google Maps correctly.
+            - table [ref=e37]:
+              - row [ref=e38]:
+                - cell [ref=e39]:
+                  - link "Do you own this website?" [ref=e40]:
+                    - /url: https://developers.google.com/maps/documentation/javascript/error-messages?utm_source=maps_js&utm_medium=degraded&utm_campaign=keyless#api-key-and-billing-errors
+                - cell [ref=e41]:
+                  - button "OK" [ref=e42] [cursor=pointer]
+          - generic [ref=e43]:
+            - generic [ref=e45]: This page can't load Google Maps correctly.
+            - table [ref=e46]:
+              - row [ref=e47]:
+                - cell [ref=e48]:
+                  - link "Do you own this website?" [ref=e49]:
+                    - /url: https://developers.google.com/maps/documentation/javascript/error-messages?utm_source=maps_js&utm_medium=degraded&utm_campaign=keyless#api-key-and-billing-errors
+                - cell [ref=e50]:
+                  - button "OK" [ref=e51] [cursor=pointer]
+        - generic [ref=e52]:
+          - generic [ref=e53]:
+            - heading "Franchise Locations" [level=3] [ref=e54]
+            - generic [ref=e55]: 0 Stores
+          - generic [ref=e56]:
+            - list
+    - generic [ref=e58]:
+      - heading "Customer Feedback" [level=2] [ref=e59]
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - heading "Leave a Review" [level=3] [ref=e62]
+          - generic [ref=e63]:
+            - generic [ref=e64]:
+              - generic [ref=e65]: Name
+              - textbox "Name Name" [ref=e66]
+            - generic [ref=e67]:
+              - generic [ref=e68]: Email
+              - textbox "Email Email" [ref=e69]
+            - generic [ref=e70]:
+              - generic [ref=e71]: Rating
+              - generic [ref=e72]:
+                - button [ref=e73]
+                - button [ref=e76]
+                - button [ref=e79]
+                - button [ref=e82]
+                - button [ref=e85]
+            - generic [ref=e88]:
+              - generic [ref=e89]: Comment
+              - textbox "Comment" [ref=e90]
+            - button "Submit Feedback" [ref=e91]
+        - generic [ref=e92]:
+          - heading "What Our Customers Say" [level=3] [ref=e93]
+          - paragraph [ref=e95]: No feedbacks available yet.
+    - generic [ref=e97]:
+      - heading "Sell Your Store to PNE Pizza LLC" [level=2] [ref=e98]
+      - paragraph [ref=e99]: Are you a Little Caesars franchise owner looking to sell? PNE Pizza LLC specializes in acquiring and operating Little Caesars locations with a proven track record of success.
+      - button "Learn More About Selling Your Store" [ref=e101]
+    - generic [ref=e103]:
+      - heading "Join Our Team" [level=2] [ref=e104]
+      - generic [ref=e105]:
+        - generic [ref=e106]:
+          - heading "Current Openings" [level=3] [ref=e107]
+          - paragraph [ref=e109]: Unable to load job openings
+          - link [ref=e111]:
+            - /url: /careers
+            - button "Show More Openings" [ref=e112]
+        - generic [ref=e113]:
+          - heading "Why Join PNE Pizza?" [level=3] [ref=e114]
+          - paragraph [ref=e115]: At PNE Pizza, we're more than just a workplace - we're a family. We're committed to creating an environment where our employees can thrive, grow, and enjoy their work.
+          - generic [ref=e116]:
+            - generic [ref=e118]:
+              - generic [ref=e119]: Competitive Pay
+              - paragraph [ref=e125]: We offer above-industry standard wages to all our team members.
+            - generic [ref=e127]:
+              - generic [ref=e128]: Immediate Pay
+              - paragraph [ref=e134]: Access your earnings when you need them with our immediate pay option.
+            - generic [ref=e136]:
+              - generic [ref=e137]: Comprehensive Benefits
+              - paragraph [ref=e143]: Health, dental, and vision insurance for eligible employees.
+            - generic [ref=e145]:
+              - generic [ref=e146]: Growth Opportunities
+              - paragraph [ref=e153]: Clear path for advancement and professional development.
+          - generic [ref=e154]:
+            - heading "Employee-Obsessed Culture" [level=4] [ref=e155]
+            - paragraph [ref=e156]: We believe that happy employees make for happy customers. That's why we've implemented a scorecard system to ensure fair evaluations and reward exceptional performance. Join a team that truly values your contributions!
+    - generic [ref=e158]:
+      - heading "Contact Us" [level=2] [ref=e159]
+      - generic [ref=e160]:
+        - generic [ref=e161]:
+          - heading "Send Us a Message" [level=3] [ref=e162]
+          - generic [ref=e163]:
+            - generic [ref=e164]:
+              - generic [ref=e165]: Name
+              - textbox [ref=e166]
+            - generic [ref=e167]:
+              - generic [ref=e168]: Email
+              - textbox [ref=e169]
+            - generic [ref=e170]:
+              - generic [ref=e171]: Phone
+              - textbox "Phone" [ref=e172]
+            - generic [ref=e173]:
+              - generic [ref=e174]: Message
+              - textbox "Message" [ref=e175]
+            - button "Send Message" [ref=e176]
+        - generic [ref=e177]:
+          - heading "Department Contacts" [level=3] [ref=e178]
+          - generic [ref=e179]:
+            - generic [ref=e180]:
+              - generic [ref=e181]: Specific Store Inquiries
+              - paragraph [ref=e186]: Call your local store directly. Find store numbers on our Locations page.
+            - generic [ref=e187]:
+              - generic [ref=e188]: General Support
+              - generic [ref=e193]:
+                - paragraph [ref=e194]: "Email: support@pnepizza.com"
+                - paragraph [ref=e195]: "Phone: (555) 123-4567"
+            - generic [ref=e196]:
+              - generic [ref=e197]: Complaints
+              - generic [ref=e201]:
+                - paragraph [ref=e202]: "Email: complaints@pnepizza.com"
+                - paragraph [ref=e203]: "Phone: (555) 987-6543"
+    - generic [ref=e205]:
+      - generic [ref=e206]:
+        - heading "PNE PIZZA" [level=3] [ref=e207]
+        - paragraph [ref=e208]: Authorized Little Caesars Franchise
+        - paragraph [ref=e209]: © 2026 All rights reserved.
+      - generic [ref=e210]:
+        - heading "Quick Links" [level=3] [ref=e211]
+        - list [ref=e212]:
+          - listitem [ref=e213]:
+            - link "Home" [ref=e214]:
+              - /url: /
+          - listitem [ref=e215]:
+            - link "Locations" [ref=e216]:
+              - /url: "#locations"
+          - listitem [ref=e217]:
+            - link "About Us" [ref=e218]:
+              - /url: /about
+          - listitem [ref=e219]:
+            - link "Find a job" [ref=e220]:
+              - /url: "#careers"
+          - listitem [ref=e221]:
+            - link "Sell Your Store" [ref=e222]:
+              - /url: /sell-your-store
+      - generic [ref=e223]:
+        - heading "Connect With Us" [level=3] [ref=e224]
+        - link "Twitter" [ref=e226]:
+          - /url: "#"
+  - alert [ref=e229]

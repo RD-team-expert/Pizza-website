@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { SettingsProvider } from './contexts/SettingsContext'
 import { Suspense } from 'react'
@@ -25,6 +26,13 @@ export default function RootLayout({
             {children}
           </Suspense>
         </SettingsProvider>
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          strategy="afterInteractive"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6ac535d3c4072640324764e6"
+          data-source="WEB_USER"
+        />
       </body>
     </html>
   )

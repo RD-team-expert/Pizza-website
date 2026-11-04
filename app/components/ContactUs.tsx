@@ -13,7 +13,6 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 export function ContactUs({ id, className }: { id?: string, className?: string }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
   const [message, setMessage] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
@@ -32,7 +31,6 @@ export function ContactUs({ id, className }: { id?: string, className?: string }
         body: JSON.stringify({
           name,
           email,
-          phone,
           message
         })
       })
@@ -41,7 +39,6 @@ export function ContactUs({ id, className }: { id?: string, className?: string }
         // Reset form
         setName('')
         setEmail('')
-        setPhone('')
         setMessage('')
         // Show success message
         setShowSuccess(true)
@@ -129,16 +126,6 @@ export function ContactUs({ id, className }: { id?: string, className?: string }
                   type="email" 
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  required 
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                <Input 
-                  id="phone" 
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
                   required 
                 />
               </div>

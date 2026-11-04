@@ -15,7 +15,6 @@ export function SellYourStore() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     info: ''
   })
 
@@ -35,7 +34,7 @@ export function SellYourStore() {
 
       if (response.ok) {
         setShowSuccess(true)
-        setFormData({ name: '', email: '', phone: '', info: '' })
+        setFormData({ name: '', email: '', info: '' })
       }
     } catch (error) {
       console.error('Error submitting form:', error)
@@ -118,17 +117,6 @@ export function SellYourStore() {
                   id="email" 
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                  required 
-                  disabled={isSubmitting}
-                />
-              </div>
-              <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                <Input 
-                  type="tel" 
-                  id="phone" 
-                  value={formData.phone}
-                  onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                   required 
                   disabled={isSubmitting}
                 />
