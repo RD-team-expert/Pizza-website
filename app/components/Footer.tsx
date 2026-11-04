@@ -24,6 +24,7 @@ export function Footer() {
             <li><a href="/about" className="text-sm hover:underline">About Us</a></li>
             <li><a href="#careers" className="text-sm hover:underline">Find a job</a></li>
             <li><a href="/sell-your-store" className="text-sm hover:underline">Sell Your Store</a></li>
+            <li><a href="/privacy-policy" className="text-sm hover:underline">Privacy Policy &amp; SMS Terms</a></li>
           </ul>
         </div>
         <div>
