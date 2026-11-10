@@ -1,46 +1,8 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { BadgeCheck, DollarSign, Heart, Zap, MapPin, ExternalLink } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { BadgeCheck, DollarSign, Heart, Zap } from 'lucide-react'
 import { motion, useInView } from 'framer-motion'
-import { useRef, useState, useEffect } from 'react'
-import Link from 'next/link'
-import { Badge } from "@/components/ui/badge"
-
-// Define types for the API response
-interface Location {
-  uuid: string;
-  digest_key: string;
-  name: string;
-  address: string;
-  postal_code: string;
-  city: string;
-  state: string;
-  country: string;
-}
-
-interface Position {
-  uuid: string;
-  digest_key: string;
-  title: string;
-  overview: string;
-  status: string;
-  number: string;
-  access: string;
-  pay_amount: string;
-  pay_frequency: string;
-  job_type: string;
-  normalized_titles: string[];
-  remote_type: string;
-  job_url: string;
-  location: Location;
-}
-
-interface ApiResponse {
-  success: boolean;
-  data: {
-    positions: Position[];
-  };
-}
+import { useRef } from 'react'
+import { JobApplicationForm } from './JobApplicationForm'
 
 const benefits = [
   { icon: <DollarSign className="h-6 w-6" />, title: "Competitive Pay", description: "We offer above-industry standard wages to all our team members." },
@@ -52,63 +14,6 @@ const benefits = [
 export function CareersSection({ id, className }: { id?: string, className?: string }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
-  const [jobOpenings, setJobOpenings] = useState<Position[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Add useEffect for mobile detection
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-        const response = await fetch(`${apiUrl}/api/v1/positions`);
-        
-        if (!response.ok) {
-          throw new Error(`Failed to fetch jobs: ${response.status}`);
-        }
-        
-        const data: ApiResponse = await response.json();
-        
-        if (data.success && data.data.positions) {
-          // Show different number of positions based on screen size
-          const limit = isMobile ? 3 : 8;
-          setJobOpenings(data.data.positions.slice(0, limit));
-        } else {
-          throw new Error('Invalid data format received from API');
-        }
-      } catch (err) {
-        console.error('Error fetching job positions:', err);
-        setError(err instanceof Error ? err.message : 'Failed to fetch job positions');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchJobs();
-  }, [isMobile]); // Re-fetch when screen size changes
-
-  // Helper function to get location display string
-  const getLocationString = (location: Location) => {
-    const parts = [];
-    
-    if (location.city) parts.push(location.city);
-    if (location.state) parts.push(location.state);
-    if (parts.length === 0 && location.country) return location.country;
-    
-    return parts.join(', ');
-  };
-
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -147,69 +52,7 @@ export function CareersSection({ id, className }: { id?: string, className?: str
         
         <motion.div className="grid md:grid-cols-2 gap-12" variants={itemVariants}>
           <motion.div variants={itemVariants}>
-            <h3 className="text-2xl font-pizza font-bold mb-4">Current Openings</h3>
-            
-            {loading && (
-              <div className="flex justify-center items-center py-8">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-              </div>
-            )}
-            
-            {error && (
-              <div className="text-center py-4">
-                <p className="text-red-500 text-sm">Unable to load job openings</p>
-              </div>
-            )}
-            
-            {!loading && !error && jobOpenings.length === 0 && (
-              <div className="text-center py-4">
-                <p>No job openings available at this time.</p>
-              </div>
-            )}
-            
-            {!loading && !error && jobOpenings.length > 0 && (
-              <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {jobOpenings.map((job) => (
-                  <motion.div key={job.uuid} variants={itemVariants}>
-                    <Card className="h-full flex flex-col">
-                      <CardHeader className="pb-2">
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-base">{job.title}</CardTitle>
-                          {job.pay_amount && (
-                            <Badge variant="outline" className="text-xs">
-                              {job.pay_amount}
-                            </Badge>
-                          )}
-                        </div>
-                        {job.location && getLocationString(job.location) && (
-                          <CardDescription className="text-xs flex items-center">
-                            <MapPin className="w-3 h-3 mr-1" />
-                            {getLocationString(job.location)}
-                          </CardDescription>
-                        )}
-                      </CardHeader>
-                      <CardContent className="pt-0 pb-4 flex-grow flex flex-col">
-                        <div className="text-xs line-clamp-2 mb-3 flex-grow">
-                          <div dangerouslySetInnerHTML={{ __html: job.overview }}></div>
-                        </div>
-                        <Link href={job.job_url} target="_blank" rel="noopener noreferrer">
-                          <Button variant="outline" size="sm" className="w-full text-xs flex items-center justify-center">
-                            Apply
-                            <ExternalLink className="w-3 h-3 ml-1" />
-                          </Button>
-                        </Link>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
-            
-            <motion.div className="mt-6" variants={itemVariants}>
-              <Link href="/careers">
-                <Button variant="default" size="lg" className="w-full">Show More Openings</Button>
-              </Link>
-            </motion.div>
+            <JobApplicationForm />
           </motion.div>
           
           <motion.div variants={itemVariants}>
