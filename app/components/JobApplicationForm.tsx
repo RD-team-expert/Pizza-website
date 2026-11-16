@@ -42,7 +42,7 @@ export function JobApplicationForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!smsConsent || !location) return
+    if (!location) return
     setSubmitted(true)
   }
 
@@ -96,7 +96,6 @@ export function JobApplicationForm() {
                   id="smsConsent"
                   checked={smsConsent}
                   onCheckedChange={(checked) => setSmsConsent(checked === true)}
-                  required
                   className="mt-1"
                 />
                 <label htmlFor="smsConsent" className="text-xs text-gray-600 leading-relaxed">
@@ -118,7 +117,7 @@ export function JobApplicationForm() {
                 </SelectContent>
               </Select>
             </div>
-            <Button type="submit" className="w-full" disabled={!smsConsent || !location}>
+            <Button type="submit" className="w-full" disabled={!location}>
               Submit Application
             </Button>
           </form>
