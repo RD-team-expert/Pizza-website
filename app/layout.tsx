@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 // Default metadata that will be overridden by dynamic metadata in pages
 export const metadata: Metadata = {
-  title: 'PNE Pizza',
+  title: 'PNE Pizza LLC',
   description: 'Your local pizza restaurant',
 }
 
