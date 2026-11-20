@@ -179,7 +179,7 @@ export function ContactUs({ id, className }: { id?: string, className?: string }
                 </CardHeader>
                 <CardContent>
                   <p>Email: support@pnepizza.com</p>
-                  <p>Phone: (555) 123-4567</p>
+                  <p>Phone: +1 (614) 704-0549</p>
                 </CardContent>
               </Card>
               <Card>
@@ -191,7 +191,7 @@ export function ContactUs({ id, className }: { id?: string, className?: string }
                 </CardHeader>
                 <CardContent>
                   <p>Email: complaints@pnepizza.com</p>
-                  <p>Phone: (555) 987-6543</p>
+                  <p>Phone: +1 (614) 704-0549</p>
                 </CardContent>
               </Card>
             </motion.div>

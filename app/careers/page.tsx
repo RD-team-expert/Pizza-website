@@ -11,7 +11,7 @@ export default function CareersPage() {
     <SmoothScroll>
       <DynamicMetadata page="careers" />
       <ModernNavbar />
-      <main className="flex min-h-screen flex-col items-center justify-between pt-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <main className="flex min-h-screen flex-col items-center justify-between pt-36 pb-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <motion.div
           className="w-full max-w-7xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
