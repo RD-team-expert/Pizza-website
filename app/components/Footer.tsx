@@ -13,8 +13,9 @@ export function Footer() {
           <h3 className="text-lg font-bold mb-4">
             {settings?.website_title?.split('-')[0] || "PNE PIZZA"}
           </h3>
-          <p className="text-sm">Authorized Little Caesars Franchise</p>
-          <p className="text-sm mt-2">&copy; {new Date().getFullYear()} All rights reserved.</p>
+          <p className="text-sm">PNE Pizza LLC</p>
+          <p className="text-sm mt-2">Authorized Little Caesars Franchise</p>
+          <p className="text-sm mt-2">&copy; {new Date().getFullYear()} PNE Pizza LLC. All rights reserved.</p>
         </div>
         <div>
           <h3 className="text-lg font-bold mb-4">Quick Links</h3>
